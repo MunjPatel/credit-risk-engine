@@ -1,0 +1,8 @@
+{
+  "n_dd_rows": 890,
+  "loss_mean": 3777734.0271494193,
+  "loss_95": 6420372.395884993,
+  "loss_99": 7965500.416104463,
+  "avg_default_rate": 0.015329999999999998,
+  "note": "Debt faces are illustrative; PD is normal-CDF mapping of DD, not Moody's EDF."
+}

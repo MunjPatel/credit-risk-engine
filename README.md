@@ -32,3 +32,8 @@ streamlit run 02_credit_risk_engine/app/dashboard.py
 5. Python version 3.11+ recommended → Deploy
 
 The app reads artifacts under `outputs/`. Re-run `scripts/run_mvp.py` locally if you need to refresh them before pushing.
+
+## Live dashboard
+
+[https://qr-credit-risk-engine.streamlit.app/](https://qr-credit-risk-engine.streamlit.app/)
+

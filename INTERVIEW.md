@@ -1,7 +1,5 @@
-# Interview narrative — Credit Risk Engine
+# Project notes — Credit Risk Engine
 
-1. Structural DD from equity + debt (Merton/KMV intuition).
-2. Portfolio losses via rating migration × LGD (incidence × severity).
-3. IRB capital sensitivities — show you can implement and unit-test regulatory math.
-4. Emphasize limitations: illustrative debt, simplified PD mapping.
-5. Bridge to validation: “Project 3 independently challenges this model.”
+I built a transparent stack connecting Merton-style distance-to-default, rating-migration loss simulation, and Basel IRB risk-weight sensitivities on public equity prices with illustrative debt inputs.
+
+**Limitations I document:** debt is not live EDGAR, and PD uses Φ(-DD) rather than a proprietary EDF map. The point is implementable risk math I can defend and independently challenge.

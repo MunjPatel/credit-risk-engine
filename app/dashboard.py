@@ -30,13 +30,13 @@ st.caption("Merton DD · migration loss simulation · Basel IRB sensitivities (p
 tab1, tab2, tab3 = st.tabs(["Distance to Default", "Loss Simulation", "IRB Sensitivities"])
 
 with tab1:
-    px = load_equity_panel()
-    tickers = list(px.columns)
+    prices = load_equity_panel()
+    tickers = list(prices.columns)
     t = st.selectbox("Ticker", tickers, index=0)
     debt = float(illustrative_debt_face(tickers)[t])
     debt = st.number_input("Illustrative debt face (USD)", value=debt, format="%.0f")
     r = st.slider("Risk-free rate", 0.0, 0.1, 0.03, 0.005)
-    hist = px[t].dropna().tail(252)
+    hist = prices[t].dropna().tail(252)
     E = float(hist.iloc[-1]) * 1_000_000
     sigma_e = float(hist.pct_change().std() * np.sqrt(252))
     V, sig_v = implied_asset_value(E, debt, 1.0, r, sigma_e)
@@ -50,7 +50,7 @@ with tab1:
     fig = px.line(hist, title=f"{t} adjusted close (1y)")
     apply_plotly_theme(fig)
     st.plotly_chart(fig, use_container_width=True)
-    st.warning("Debt is illustrative (not live EDGAR). PD uses Φ(-DD), not a proprietary EDF calibration.")
+    st.caption("Debt face values are illustrative placeholders (not live EDGAR filings). I map PD with Φ(-DD), not a proprietary EDF calibration.")
 
 with tab2:
     n_sims = st.slider("Simulations", 500, 5000, 2000, 500)
